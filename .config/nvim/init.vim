@@ -15,7 +15,6 @@ set ttyfast                 " Speed up scrolling in Vim
 set whichwrap+=<,>,[,]
 set noswapfile
 call plug#begin('~/AppData/Local/nvim/plugged')
-Plug 'ackyshake/Spacegray.vim'  
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
@@ -39,9 +38,14 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
 \}
+Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
+Plug 'rmagatti/auto-session'
 call plug#end()
-
-colorscheme spacegray
+" colorscheme
+" ---------------------------
+set termguicolors
+set background=dark
+colorscheme github-colors
 
 " load lua plugins 
 " ---------------------------
@@ -50,6 +54,7 @@ lua require('plugins');
 " ---------------------------
  map <C-t> :Telescope file_browser <CR>
  map <C-f> :Telescope grep_string <CR>
+ map <C-g> :Telescope resume <CR>
  map <C-s> :wa <CR>
 
  " other
