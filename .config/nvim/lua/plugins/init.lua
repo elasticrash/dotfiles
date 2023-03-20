@@ -134,6 +134,7 @@ require('lualine').setup{
 }
 require('prettier').setup()
 require('lspconfig').tsserver.setup {}
+require('lspconfig').rust_analyzer.setup({})
 require('mason').setup()
 require('telescope').load_extension "file_browser"
 require('better-comment').Setup()

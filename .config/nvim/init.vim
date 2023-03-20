@@ -41,6 +41,7 @@ Plug 'heavenshell/vim-jsdoc', {
 \}
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " colorscheme
