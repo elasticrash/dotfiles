@@ -1,1 +1,105 @@
-/home/tougo/other/mybash/starship.toml
+format = """
+[­ƒªè](yellow)\
+$username\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$nodejs\
+$rust\
+$docker_context\
+[­ƒòæ](red)\
+$time\
+[]()\
+$aws\
+[ > ]()
+"""
+
+command_timeout = 5000
+
+[shell]
+bash_indicator = "$"
+
+[username]
+show_always = true
+style_user = "yellow"
+format = '[local WSL ]($style)'
+
+[directory]
+style = "green"
+format = "[ ­ƒôü $path ]($style)"
+truncation_length = 3
+truncation_symbol = "ÔÇª/"
+
+[aws]
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+[c]
+symbol = "¯ÿ× "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = "´îê "
+style = "#d65813"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = "¯ëÁ "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = "¯ÿ¼ "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = "´äô"
+style = "#d65813"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "#d65813"
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = "¯ÿº "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = "¯ØÀ "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = "¯ëû "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = "¯ÿñ "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = "¯£ÿ"
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "´Üñ "
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = "¯×¿"
+style = "#d65813"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "red"
+format = '[ $time ]($style)'
