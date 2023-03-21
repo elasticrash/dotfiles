@@ -1,5 +1,5 @@
 format = """
-[­ƒªè](yellow)\
+[🦊](yellow)\
 $username\
 $directory\
 $git_branch\
@@ -8,7 +8,7 @@ $c\
 $nodejs\
 $rust\
 $docker_context\
-[­ƒòæ](red)\
+[🕑](red)\
 $time\
 []()\
 $aws\
@@ -27,7 +27,7 @@ format = '[local WSL ]($style)'
 
 [directory]
 style = "green"
-format = "[ ­ƒôü $path ]($style)"
+format = "[ 📁 $path ]($style)"
 truncation_length = 3
 truncation_symbol = "ÔÇª/"
 
@@ -35,27 +35,17 @@ truncation_symbol = "ÔÇª/"
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
 [c]
-symbol = "¯ÿ× "
+symbol = " "
 style = "#d65813"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
-symbol = "´îê "
+symbol = " "
 style = "#d65813"
 format = '[ $symbol $context ]($style) $path'
 
-[elixir]
-symbol = "¯ëÁ "
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = "¯ÿ¼ "
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
-symbol = "´äô"
+symbol = ""
 style = "#d65813"
 format = '[ $symbol $branch ]($style)'
 
@@ -63,38 +53,13 @@ format = '[ $symbol $branch ]($style)'
 style = "#d65813"
 format = '[$all_status$ahead_behind ]($style)'
 
-[golang]
-symbol = "¯ÿº "
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = "¯ØÀ "
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = "¯ëû "
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = "¯ÿñ "
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
 [nodejs]
-symbol = "¯£ÿ"
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = "´Üñ "
+symbol = ""
 style = "#d65813"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
-symbol = "¯×¿"
+symbol = ""
 style = "#d65813"
 format = '[ $symbol ($version) ]($style)'
 
