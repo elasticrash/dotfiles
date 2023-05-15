@@ -42,6 +42,7 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/tagbar'
 call plug#end()
 
 " colorscheme
@@ -59,6 +60,7 @@ lua require('plugins');
  map <C-t> :Telescope file_browser <CR>
  map <C-f> :Telescope grep_string <CR>
  map <C-g> :Telescope resume <CR>
+ map <F10> :Tagbar <CR>
  map <C-s> :wa <CR>
 
  " other
