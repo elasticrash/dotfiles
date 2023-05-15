@@ -34,6 +34,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Djancyp/better-comments.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
@@ -41,6 +42,7 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session'
 call plug#end()
+
 " colorscheme
 " ---------------------------
 set termguicolors
@@ -50,6 +52,7 @@ colorscheme github-colors
 " load lua plugins 
 " ---------------------------
 lua require('plugins');
+
 " keyboard mappings
 " ---------------------------
  map <C-t> :Telescope file_browser <CR>
@@ -60,4 +63,8 @@ lua require('plugins');
  " other
  " --------------------------
 let g:jsdoc_lehre_path = '/usr/lib/node_modules/lehre/bin/lehre'
+ 
+ " Coc
+ " --------------------------
+ :hi CocInlayHint guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
 
