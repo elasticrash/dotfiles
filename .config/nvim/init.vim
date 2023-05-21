@@ -37,7 +37,7 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
-Plug 'rmagatti/auto-session'
+Plug 'rmagatti/auto-session', {'tag': 'v2.0.1'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
 call plug#end()
