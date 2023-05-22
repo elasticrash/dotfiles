@@ -40,6 +40,7 @@ Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session', {'tag': 'v2.0.1'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
+Plug 'github/copilot.vim'
 call plug#end()
 
 " colorscheme
