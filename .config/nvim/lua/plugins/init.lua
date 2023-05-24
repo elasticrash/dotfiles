@@ -1,3 +1,21 @@
+-- auto session
+local opts = {
+  log_level = 'info',
+  auto_session_enable_last_session = false,
+  auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
+  auto_session_enabled = true,
+  auto_save_enabled = nil,
+
+  auto_restore_enabled = nil,
+  auto_session_suppress_dirs = nil,
+  auto_session_use_git_branch = nil,
+  -- the configs below are lua only
+  bypass_session_save_file_types = nil
+}
+
+require('auto-session').setup(opts)
+
+-- statusline components and functions
 local colors = {
   red = '#ca1243',
   grey = '#a0a1a7',
@@ -75,16 +93,14 @@ local function modified()
 end
 
 require('lualine').setup{
-	  options = {
-    theme = theme,
-    component_separators = '',
-    section_separators = { left = '', right = '' },
+	options = {
+		theme = theme,
+		component_separators = '',
+		section_separators = { left = '', right = '' },
   },
-   -- options = { theme = 'dracula' },
     sections = process_sections {
     lualine_a = { 'mode' },
     lualine_b = {
-
       'branch',
       'diff',
       {
@@ -120,22 +136,18 @@ require('lualine').setup{
         end,
       },
     },
-
-    lualine_c = {},
+	lualine_c = { require('auto-session.lib').current_session_name },
     lualine_x = {},
     lualine_y = { search_result, 'filetype' },
     lualine_z = { '%l:%c', '%p%%/%L' },
   },
-  inactive_sections = {
-    lualine_c = { '%f %y %m' },
-
-    lualine_x = {},
-  }
 }
+
 require('lspconfig').tsserver.setup {}
 require('lspconfig').rust_analyzer.setup({})
 require('telescope').load_extension "file_browser"
 require('better-comment').Setup()
+
 require('lspkind').init({
 mode = 'symbol_text',
 preset = 'codicons'
@@ -221,3 +233,6 @@ prettier.setup {
     "json",
   }
 }
+
+
+
