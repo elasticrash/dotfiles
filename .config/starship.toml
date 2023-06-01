@@ -28,10 +28,10 @@ style_user = "yellow"
 format = '[local WSL ]($style)'
 
 [directory]
-style = "green"
+style = "red"
 format = "[ 📁 $path ]($style)"
 truncation_length = 3
-truncation_symbol = "ÔÇª/"
+truncation_symbol = "🍓🍓🍓 /"
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -50,7 +50,7 @@ format = '[ $symbol $context ]($style) $path'
 
 [git_branch]
 symbol = ""
-style = "#d65813"
+style = "#165813"
 format = '[ $symbol $branch ]($style)'
 
 
