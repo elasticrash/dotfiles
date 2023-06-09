@@ -1,16 +1,27 @@
+-- lsp
+require('lspconfig').tsserver.setup {}
+-- mason
+require("mason").setup()
+-- lightbulb
+local lb = require('nvim-lightbulb')
+lb.setup({autocmd = {enabled = true}})
 -- rust specific 
 local rt = require("rust-tools")
-
-
 rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
+	tools = {
+		inlay_hints = {
+			auto = true,
+		},
+		hover_actions = {
+			auto_focus = true,
+		},
+	}, 
+	server = {
+		on_attach = function(_, bufnr)
+			vim.keymap.set("n", "<C-a>", rt.hover_actions.hover_actions, { buffer = bufnr })
+			vim.keymap.set("n", "<C-q>", rt.code_action_group.code_action_group, { buffer = bufnr })
+		end,
+	}
 })
 
 -- auto session
@@ -24,7 +35,6 @@ local opts = {
   auto_restore_enabled = nil,
   auto_session_suppress_dirs = nil,
   auto_session_use_git_branch = nil,
-  -- the configs below are lua only
   bypass_session_save_file_types = nil
 }
 
@@ -158,15 +168,8 @@ require('lualine').setup{
   },
 }
 
-require('lspconfig').tsserver.setup {}
-require('lspconfig').rust_analyzer.setup({})
-require('telescope').load_extension "file_browser"
-require('better-comment').Setup()
 
-require('lspkind').init({
-mode = 'symbol_text',
-preset = 'codicons'
-})
+require('telescope').load_extension "file_browser"
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "lua", "rust", "toml" },
@@ -189,48 +192,11 @@ if (not status) then return end
 local protocol = require('vim.lsp.protocol')
 
 -- TypeScript
-
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" }
 }
-
-
-local status, cmp = pcall(require, "cmp")
-if (not status) then return end
-local lspkind = require 'lspkind'
-
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  }),
-  formatting = {
-    format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-  }
-})
-
-vim.cmd [[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]]
 
 local status, null_ls = pcall(require, "null-ls")
 if (not status) then return end

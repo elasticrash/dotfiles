@@ -24,25 +24,22 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'onsails/lspkind.nvim'
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.1.0'}
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'Djancyp/better-comments.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install'
-\}
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session', {'tag': 'v2.0.1'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
 Plug 'github/copilot.vim'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'williamboman/mason.nvim' , { 'do': ':MasonUpdate' }
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'kosayoda/nvim-lightbulb'
+Plug 'antoinemadec/FixCursorHold.nvim'
 call plug#end()
 
 " colorscheme
@@ -69,5 +66,5 @@ let g:jsdoc_lehre_path = '/usr/lib/node_modules/lehre/bin/lehre'
  
  " Coc
  " --------------------------
- :hi CocInlayHint guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
+ " :hi CocInlayHint guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
 
