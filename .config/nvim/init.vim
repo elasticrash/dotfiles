@@ -40,6 +40,7 @@ Plug 'williamboman/mason.nvim' , { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " colorscheme
