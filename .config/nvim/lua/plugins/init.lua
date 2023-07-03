@@ -61,7 +61,7 @@ require('lualine').setup{
     lualine_b = {'branch', 'diff', 'diagnostics'},
 	lualine_c = {require('auto-session.lib').current_session_name},
     lualine_x = {},
-    lualine_y = {'filename'},
+    lualine_y = {{'filename', path=1}},
     lualine_z = {'%l:%c', '%p%%/%L'},
   }
 }

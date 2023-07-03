@@ -9,11 +9,12 @@ set number                  " add line numbers
 syntax enable               " syntax highlighting
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard
-filetype plugin on
+filetype plugin on          " enable filetype plugins
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
-set whichwrap+=<,>,[,]
-set noswapfile
+set whichwrap+=<,>,[,]	    " move to next line with theses keys
+set noswapfile	            " disable swapfile
+set conceallevel=0          " so that quotes are not hidden
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -41,6 +42,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'Yggdroot/indentLine'
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 " colorscheme
@@ -63,9 +65,11 @@ lua require('plugins');
 
  " other
  " --------------------------
-let g:jsdoc_lehre_path = '/usr/lib/node_modules/lehre/bin/lehre'
- 
- " Coc
+let g:jsdoc_lehre_path='/usr/lib/node_modules/lehre/bin/lehre'
+let g:indentLine_conceallevel = 0
+ " Coc 
  " --------------------------
  " :hi CocInlayHint guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
+ autocmd BufWritePre * lua vim.lsp.buf.format()
+
 
