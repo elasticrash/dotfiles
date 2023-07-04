@@ -57,19 +57,27 @@ lua require('plugins');
 
 " keyboard mappings
 " ---------------------------
- map <C-t> :Telescope file_browser <CR>
- map <C-f> :Telescope grep_string <CR>
- map <C-g> :Telescope resume <CR>
- map <F10> :Tagbar <CR>
- map <C-s> :wa <CR>
+map <C-t> :Telescope file_browser <CR>
+map <C-f> :Telescope grep_string <CR>
+map <C-g> :Telescope resume <CR>
+map <F10> :Tagbar <CR>
+map <C-s> :wa <CR>
 
- " other
- " --------------------------
+" move lines up and down with alt + j/k
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" other
+" --------------------------
 let g:jsdoc_lehre_path='/usr/lib/node_modules/lehre/bin/lehre'
 let g:indentLine_conceallevel = 0
- " Coc 
- " --------------------------
- " :hi CocInlayHint guibg=Yellow guifg=Black ctermbg=Yellow ctermfg=Black
- autocmd BufWritePre * lua vim.lsp.buf.format()
+
+" auto format with LSP
+" --------------------------
+autocmd BufWritePre * lua vim.lsp.buf.format()
 
 
