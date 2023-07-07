@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "coc-rust-analyzer": ">=0.73.0",
-    "coc-prettier": ">=9.3.1",
-    "coc-json": ">=1.8.0",
-    "coc-tsserver": ">=2.1.3"
-  }
-}

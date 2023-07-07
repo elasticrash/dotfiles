@@ -1,5 +1,8 @@
 -- lsp
 require('lspconfig').tsserver.setup {}
+require("fidget").setup()
+vim.o.completeopt = "menuone,noinsert,noselect"
+vim.opt.shortmess = vim.opt.shortmess + "c"
 -- mason
 require("mason").setup()
 -- lightbulb
@@ -9,6 +12,9 @@ lb.setup({autocmd = {enabled = true}})
 local rt = require("rust-tools")
 rt.setup({
 	tools = {
+		runnables = {
+			use_telescope = true,
+		},
 		inlay_hints = {
 			auto = true,
 		},
@@ -17,12 +23,38 @@ rt.setup({
 		},
 	}, 
 	server = {
-		on_attach = function(_, bufnr)
+		on_attach = function(client, buffer)
 			vim.keymap.set("n", "<C-a>", rt.hover_actions.hover_actions, { buffer = bufnr })
 			vim.keymap.set("n", "<C-q>", rt.code_action_group.code_action_group, { buffer = bufnr })
 		end,
 	}
 })
+-- completion
+local cmp = require('cmp')
+cmp.setup({
+ preselect = cmp.PreselectMode.None,
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+	["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
+    ["<Right>"] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    }),
+  },
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "vsnip" },
+
+    { name = "path" },
+    { name = "buffer" },
+  },
+})
+
 -- lua line
 local colors = {
   red = '#ca1243',
@@ -101,13 +133,10 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
--- lsp config 
+-- typescript
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
-local protocol = require('vim.lsp.protocol')
-
--- typescript
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },

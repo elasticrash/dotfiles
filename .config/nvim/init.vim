@@ -18,27 +18,24 @@ set conceallevel=0          " so that quotes are not hidden
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' } " LSP progress
+Plug 'neovim/nvim-lspconfig'		" required for rust-tools
+Plug 'hrsh7th/nvim-cmp'				" Autocompletion
+Plug 'hrsh7th/cmp-nvim-lsp' 		" LSP completion
+Plug 'hrsh7th/vim-vsnip'			" Snippet completion
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.1.0'}
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim'		" required for telescope, rust-tools, etc
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session', {'tag': 'v2.0.1'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/tagbar'
 Plug 'github/copilot.vim'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'williamboman/mason.nvim' , { 'do': ':MasonUpdate' }
-Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason-lspconfig.nvim' " brings mason lsp to nvim-lspconfig
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'Yggdroot/indentLine'
