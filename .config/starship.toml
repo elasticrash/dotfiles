@@ -1,5 +1,5 @@
 format = """
-[🦊](yellow)\
+[🎵 ](yellow)\
 $username\
 $directory\
 $git_branch\
@@ -31,7 +31,7 @@ format = '[local WSL ]($style)'
 style = "red"
 format = "[ 📁 $path ]($style)"
 truncation_length = 3
-truncation_symbol = "🍓🍓🍓 /"
+truncation_symbol = "🎶 /"
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
