@@ -1,5 +1,5 @@
 [alias]
     lgn = log --oneline --color --decorate --graph --branches --tags
-	lgu = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %    C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
-    lgd = log --color --graph --pretty=format:'%C(bold red)%h%Creset %C(bold white)(%cr)%Creset %C(b    old blue)%an: %Creset %s%n %C(bold magenta)%cD%Creset %C(bold yellow)%d%Creset'
+	lgu = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+    lgd = log --color --graph --pretty=format:'%C(bold red)%h%Creset %C(bold white)(%cr)%Creset %C(bold blue)%an: %Creset %s%n %C(bold magenta)%cD%Creset %C(bold yellow)%d%Creset'
 	lg = log --graph --all --pretty=format:"%C(auto)%ad%x20%h%d%x20%s" --date=short
