@@ -28,6 +28,8 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'		" required for telescope, rust-tools, etc
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim'
+Plug 'BurntSushi/ripgrep'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session', {'tag': 'v2.0.1'}
@@ -55,8 +57,11 @@ lua require('plugins');
 " keyboard mappings
 " ---------------------------
 map <C-t> :Telescope file_browser <CR>
-map <C-f> :Telescope grep_string <CR>
-map <C-g> :Telescope resume <CR>
+map <C-f>f :Telescope grep_string <CR>
+map <C-f>g :Telescope resume <CR>
+map <C-f>b :Telescope buffers <CR>
+map <C-f>t :Telescope find_files <CR>
+map <C-f>c :Telescope git_commits <CR>
 map <F10> :Tagbar <CR>
 map <C-s> :wa <CR>
 
