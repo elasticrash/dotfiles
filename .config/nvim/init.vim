@@ -15,6 +15,7 @@ set ttyfast                 " Speed up scrolling in Vim
 set whichwrap+=<,>,[,]	    " move to next line with theses keys
 set noswapfile	            " disable swapfile
 set conceallevel=0          " so that quotes are not hidden
+set cmdheight=0			    " hides command line when not in use
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
