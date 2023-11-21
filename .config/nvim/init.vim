@@ -27,7 +27,7 @@ Plug 'hrsh7th/vim-vsnip'			" Snippet completion
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.1.0'}
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'		" required for telescope, rust-tools, etc
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim'
 Plug 'BurntSushi/ripgrep'
