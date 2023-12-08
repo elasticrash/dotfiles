@@ -1,23 +1,14 @@
--- lsp
-require('lspconfig').tsserver.setup {}
-require("fidget").setup()
-vim.o.completeopt = "menuone,noinsert,noselect"
-vim.opt.shortmess = vim.opt.shortmess + "c"
-
-vim.diagnostic.config({
-  virtual_text = false,
-  float = { border = "rounded" }
-})
-
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335 guifg=#abb2bf]]
+require("plugins.lsp")
+require("plugins.statusline")
+require("plugins.typescript")
 
 -- mason
 require("mason").setup()
+
 -- lightbulb
 local lb = require('nvim-lightbulb')
 lb.setup({autocmd = {enabled = true}})
+
 -- rust specific 
 local rt = require("rust-tools")
 rt.setup({
@@ -39,6 +30,7 @@ rt.setup({
 		end,
 	}
 })
+
 -- completion
 local cmp = require('cmp')
 cmp.setup({
@@ -64,49 +56,6 @@ cmp.setup({
     { name = "buffer" },
   },
 })
-
--- lua line
-local colors = {
-  red = '#ca1243',
-  grey = '#a0a1a7',
-  black = '#383a42',
-
-  white = '#f3f3f3',
-  light_green = '#83a598',
-  orange = '#fe8019',
-  green = '#8ec07c',
-}
-
-local theme = {
-  normal = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.black, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.orange },
-    z = { fg = colors.white, bg = colors.black },
-
-  },
-  insert = { a = { fg = colors.white, bg = colors.red } },
-  visual = { a = { fg = colors.black, bg = colors.orange } },
-  replace = { a = { fg = colors.black, bg = colors.green } },
-}
-
-local empty = require('lualine.component'):extend()
-
-require('lualine').setup{
-	options = {
-		theme = theme,
-		component_separators = '',
-		section_separators = { left = '', right = '' }
-	},
-	sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-	lualine_c = {require('auto-session.lib').current_session_name},
-    lualine_x = {},
-    lualine_y = {{'filename', path=1}},
-    lualine_z = {'%l:%c', '%p%%/%L'},
-  }
-}
 
 -- auto session
 local opts = {
@@ -142,41 +91,4 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = nil,
   }
 }
-
--- typescript
-local status, nvim_lsp = pcall(require, "lspconfig")
-if (not status) then return end
-
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" }
-}
-
-local status, null_ls = pcall(require, "null-ls")
-if (not status) then return end
-
-null_ls.setup({
-  sources = {
-    null_ls.builtins.diagnostics.eslint_d.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})'
-    }),
-    null_ls.builtins.diagnostics.fish
-  }
-})
-
-local status, prettier = pcall(require, "prettier")
-if (not status) then return end
-
-prettier.setup {
-  bin = 'prettierd',
-  filetypes = {
-    "css",
-    "javascript",
-    "typescript",
-    "json",
-  }
-}
-
-
 
