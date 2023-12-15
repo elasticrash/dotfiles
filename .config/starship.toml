@@ -15,9 +15,7 @@ $aws\
 [ > ]()
 """
 
-
 command_timeout = 5000
-
 
 [shell]
 bash_indicator = "$"
@@ -37,7 +35,6 @@ truncation_symbol = "🎶 /"
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
 [c]
-
 symbol = " "
 style = "#d65813"
 format = '[ $symbol ($version) ]($style)'
@@ -47,12 +44,10 @@ symbol = " "
 style = "#d65813"
 format = '[ $symbol $context ]($style) $path'
 
-
 [git_branch]
 symbol = ""
 style = "#165813"
 format = '[ $symbol $branch ]($style)'
-
 
 [git_status]
 style = "#d65813"
@@ -60,7 +55,6 @@ format = '[$all_status$ahead_behind ]($style)'
 
 [nodejs]
 symbol = ""
-
 style = "#d65813"
 format = '[ $symbol ($version) ]($style)'
 
