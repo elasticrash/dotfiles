@@ -1,6 +1,7 @@
 require("plugins.lsp")
 require("plugins.statusline")
 require("plugins.typescript")
+require("plugins.cody")
 
 -- mason
 require("mason").setup()
@@ -51,7 +52,7 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "vsnip" },
-
+	{ name = "cody" },
     { name = "path" },
     { name = "buffer" },
   },

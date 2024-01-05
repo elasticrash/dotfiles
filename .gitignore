@@ -1,0 +1,6 @@
+.cfg
+.aws
+.aws-sam
+.npm
+.nvm
+.config/init.sh

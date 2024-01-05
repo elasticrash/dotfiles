@@ -24,6 +24,8 @@ Plug 'neovim/nvim-lspconfig'		" required for rust-tools
 Plug 'hrsh7th/nvim-cmp'				" Autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp' 		" LSP completion
 Plug 'hrsh7th/vim-vsnip'			" Snippet completion
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.1.0'}
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'		" required for telescope, rust-tools, etc
@@ -35,7 +37,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lourenci/github-colors', {'do': ':TSUpdate'}
 Plug 'rmagatti/auto-session', {'tag': 'v2.0.1'}
 Plug 'preservim/tagbar'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
+Plug 'sourcegraph/sg.nvim', { 'do': 'nvim -l build/init.lua' }
 Plug 'simrat39/rust-tools.nvim'
 Plug 'williamboman/mason.nvim' , { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim' " brings mason lsp to nvim-lspconfig
@@ -48,6 +51,7 @@ call plug#end()
 
 " colorscheme
 " ---------------------------
+
 set termguicolors
 set background=dark
 colorscheme github-colors
@@ -70,6 +74,7 @@ map <C-s> :wa <CR>
 " move lines up and down with alt + j/k
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
+nnoremap <space>ss <cmd>lua require('sg.extensions.telescope').fuzzy_search_results()<CR>
 inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
