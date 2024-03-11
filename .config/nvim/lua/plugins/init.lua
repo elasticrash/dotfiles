@@ -2,7 +2,8 @@ require("plugins.lsp")
 require("plugins.statusline")
 require("plugins.typescript")
 require("plugins.cody")
-
+-- glow
+require("glow").setup()
 -- mason
 require("mason").setup()
 

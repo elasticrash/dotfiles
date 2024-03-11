@@ -47,6 +47,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'Yggdroot/indentLine'
 Plug 'APZelos/blamer.nvim'
 Plug 'vuciv/vim-bujo'
+Plug 'ellisonleao/glow.nvim'
 call plug#end()
 
 " colorscheme
