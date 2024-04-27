@@ -1,20 +1,24 @@
 [font]
-size = 15
+size = 16
+
+[font.offset]
+x = 0
+y = 0
 
 [font.bold]
-family = "Mononoki Nerd font"
+family = "CaskaydiaCove Nerd font"
 style = "Regular"
 
 [font.bold_italic]
-family = "Mononoki Nerd font"
+family = "CaskaydiaCove Nerd font"
 style = "Regular"
 
 [font.italic]
-family = "Mononoki Nerd font"
+family = "CaskaydiaCove Nerd font"
 style = "Regular"
 
 [font.normal]
-family = "Mononoki Nerd font"
+family = "CaskaydiaCove Nerd font"
 style = "Regular"
 
 [shell]
