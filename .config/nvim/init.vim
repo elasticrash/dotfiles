@@ -1,21 +1,21 @@
-set nocompatible            " disable compatibility to old-time vi
-set hlsearch                " highlight search
-set incsearch               " incremental search
-set tabstop=4               " number of columns occupied by a tab
-set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
-set shiftwidth=4            " width for autoindents
-set autoindent              " indent a new line the same amount as the line just typed
-set number                  " add line numbers
-syntax enable               " syntax highlighting
-set mouse=a                 " enable mouse click
-set clipboard=unnamedplus   " using system clipboard
-filetype plugin on          " enable filetype plugins
-set cursorline              " highlight current cursorline
-set ttyfast                 " Speed up scrolling in Vim
-set whichwrap+=<,>,[,]	    " move to next line with theses keys
-set noswapfile	            " disable swapfile
-set conceallevel=0          " so that quotes are not hidden
-set cmdheight=0			    " hides command line when not in use
+set nocompatible              " disable compatibility to old-time vi
+set hlsearch                  " highlight search
+set incsearch                 " incremental search
+set tabstop=4                 " number of columns occupied by a tab
+set softtabstop=0 noexpandtab " see multiple spaces as tabstops so <BS> does the right thing
+set shiftwidth=4 smarttab     " width for autoindents
+set autoindent                " indent a new line the same amount as the line just typed
+set number                    " add line numbers
+syntax enable                 " syntax highlighting
+set mouse=a                   " enable mouse click
+set clipboard=unnamedplus     " using system clipboard
+filetype plugin on            " enable filetype plugins
+set cursorline                " highlight current cursorline
+set ttyfast                   " Speed up scrolling in Vim
+set whichwrap+=<,>,[,]	      " move to next line with theses keys
+set noswapfile	              " disable swapfile
+set conceallevel=0            " so that quotes are not hidden
+set cmdheight=0			      " hides command line when not in use
 call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
