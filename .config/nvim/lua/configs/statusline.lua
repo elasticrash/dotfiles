@@ -34,7 +34,7 @@ require('lualine').setup{
 	sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-	lualine_c = {require('auto-session.lib').current_session_name},
+	lualine_c = {},
     lualine_x = {},
     lualine_y = {{'filename', path=1}},
     lualine_z = {'%l:%c', '%p%%/%L'},
