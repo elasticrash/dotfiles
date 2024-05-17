@@ -1,37 +1,34 @@
-require("plugins.lsp")
-require("plugins.statusline")
-require("plugins.typescript")
-require("plugins.cody")
+require("configs.lsp")
+require("configs.statusline")
+require("configs.typescript")
+require("configs.cody")
 -- glow
 require("glow").setup()
 -- mason
 require("mason").setup()
-
 -- lightbulb
 local lb = require('nvim-lightbulb')
 lb.setup({autocmd = {enabled = true}})
-
 -- rust specific 
-local rt = require("rust-tools")
-rt.setup({
-	tools = {
-		runnables = {
-			use_telescope = true,
-		},
-		inlay_hints = {
-			auto = true,
-		},
-		hover_actions = {
-			auto_focus = true,
-		},
-	}, 
-	server = {
-		on_attach = function(client, buffer)
-			vim.keymap.set("n", "<C-a>", rt.hover_actions.hover_actions, { buffer = bufnr })
-			vim.keymap.set("n", "<C-q>", rt.code_action_group.code_action_group, { buffer = bufnr })
+vim.g.rustaceanvim = {
+  tools = {
+  },
+  server = {
+		on_attach = function(_, bufnr)
+			vim.keymap.set("n", "<C-a>",
+			function()
+				vim.cmd.RustLsp { 'hover', 'actions' }
+			end,
+			{ desc = "Code Action", buffer = bufnr })
 		end,
-	}
-})
+    default_settings = {
+      ['rust-analyzer'] = {
+      },
+    },
+  },
+  dap = {
+  },
+}
 
 -- completion
 local cmp = require('cmp')
@@ -61,16 +58,16 @@ cmp.setup({
 
 -- auto session
 local opts = {
-  log_level = 'info',
-  auto_session_enable_last_session = false,
-  auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
-  auto_session_enabled = true,
-  auto_save_enabled = nil,
+ log_level = 'info',
+ auto_session_enable_last_session = false,
+ auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
+ auto_session_enabled = true,
+ auto_save_enabled = nil,
 
-  auto_restore_enabled = nil,
-  auto_session_suppress_dirs = nil,
-  auto_session_use_git_branch = nil,
-  bypass_session_save_file_types = nil
+ auto_restore_enabled = nil,
+ auto_session_suppress_dirs = nil,
+ auto_session_use_git_branch = nil,
+ bypass_session_save_file_types = nil
 }
 
 require('auto-session').setup(opts)
