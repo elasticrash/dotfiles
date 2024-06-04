@@ -2,6 +2,7 @@ require("configs.lsp")
 require("configs.statusline")
 require("configs.typescript")
 require("configs.cody")
+require("configs.harpoon")
 -- glow
 require("glow").setup()
 -- mason
