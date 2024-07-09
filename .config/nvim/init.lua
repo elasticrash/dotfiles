@@ -42,7 +42,7 @@ vim.keymap.set('i', '<A-j>', '<cmd><ESC>:m .+1<cr>==gi')
 vim.keymap.set('i', '<A-k>', '<cmd><ESC>:m .-2<cr>==gi')
 vim.keymap.set('v', '<A-j>', '<cmd>:m .+1<cr>gv==gv')
 vim.keymap.set('v', '<A-k>', '<cmd>:m .-2<cr>gv==gv')
-vim.keymap.set('n', '<A-p>', '<cmd>:%bd|e#')
+vim.keymap.set('n', '<A-p>', '<cmd>:%bd|e#<cr>')
 vim.api.nvim_set_keymap('n', '<C-w>s', '<C-w>s<C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-w>v', '<C-w>v<C-w>l', { noremap = true, silent = true })
 
