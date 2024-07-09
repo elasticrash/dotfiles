@@ -9,6 +9,7 @@ require("mason").setup()
 -- lightbulb
 local lb = require("nvim-lightbulb")
 lb.setup({ autocmd = { enabled = true } })
+
 -- rust specific
 vim.g.rustaceanvim = {
 	tools = {},
@@ -32,13 +33,18 @@ cmp.setup({
 	snippet = {
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body)
+
 		end,
 	},
+
 	mapping = {
+
 		["<Up>"] = cmp.mapping.select_prev_item(),
+
 		["<Down>"] = cmp.mapping.select_next_item(),
 		["<Enter>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Insert,
+
 			select = true,
 		}),
 	},
@@ -56,14 +62,17 @@ local opts = {
 	log_level = "info",
 	auto_session_enable_last_session = false,
 	auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
+
 	auto_session_enabled = true,
 	auto_save_enabled = nil,
+
 
 	auto_restore_enabled = nil,
 	auto_session_suppress_dirs = nil,
 	auto_session_use_git_branch = nil,
 	bypass_session_save_file_types = nil,
 }
+
 
 require("auto-session").setup(opts)
 
@@ -79,6 +88,7 @@ require("nvim-treesitter.configs").setup({
 		additional_vim_regex_highlighting = false,
 	},
 	ident = { enable = true },
+
 	rainbow = {
 		enable = true,
 		extended_mode = true,
