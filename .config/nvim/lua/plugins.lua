@@ -59,6 +59,7 @@ return {
 	},
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
+	{ "hrsh7th/vim-vsnip" },
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
