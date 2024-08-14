@@ -84,4 +84,5 @@ return {
 		},
 	},
 	{ "rmagatti/auto-session" },
+	{ "mbbill/undotree" }
 }
