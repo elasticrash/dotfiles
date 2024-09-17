@@ -58,6 +58,7 @@ cmp.setup({
 })
 
 -- auto session
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 local opts = {
 	log_level = "info",
 	auto_session_enable_last_session = false,

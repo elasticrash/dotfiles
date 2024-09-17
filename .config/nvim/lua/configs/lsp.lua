@@ -1,5 +1,5 @@
 -- lsp
-require("lspconfig").tsserver.setup({})
+require("lspconfig").ts_ls.setup({})
 require("fidget").setup()
 
 vim.o.completeopt = "menuone,noinsert,noselect"
