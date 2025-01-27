@@ -1,7 +1,51 @@
 require("configs.lsp")
 require("configs.statusline")
 require("configs.typescript")
-require("configs.cody")
+require('copilot').setup({
+  panel = {
+    enabled = true,
+    auto_refresh = false,
+    keymap = {
+      jump_prev = "[[",
+      jump_next = "]]",
+      accept = "<CR>",
+      refresh = "gr",
+      open = "<M-CR>"
+    },
+    layout = {
+      position = "bottom", -- | top | left | right | horizontal | vertical
+      ratio = 0.4
+    },
+  },
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    hide_during_completion = true,
+    debounce = 75,
+    keymap = {
+      accept = "<M-l>",
+      accept_word = false,
+      accept_line = false,
+      next = "<M-]>",
+      prev = "<M-[>",
+      dismiss = "<C-]>",
+    },
+  },
+  filetypes = {
+    yaml = false,
+    markdown = false,
+    help = false,
+    gitcommit = false,
+    gitrebase = false,
+    hgcommit = false,
+    svn = false,
+    cvs = false,
+    ["."] = false,
+  },
+  copilot_node_command = 'node', -- Node.js version must be > 18.x
+  server_opts_overrides = {},
+})
+
 -- glow
 require("glow").setup()
 -- mason
@@ -9,55 +53,8 @@ require("mason").setup()
 -- lightbulb
 local lb = require("nvim-lightbulb")
 lb.setup({ autocmd = { enabled = true } })
-
--- rust specific
-vim.g.rustaceanvim = {
-	tools = {},
-	server = {
-		on_attach = function(_, bufnr)
-			vim.keymap.set("n", "<C-a>", function()
-				vim.cmd.RustLsp({ "hover", "actions" })
-			end, { desc = "Code Action", buffer = bufnr })
-		end,
-		default_settings = {
-			["rust-analyzer"] = {},
-		},
-	},
-	dap = {},
-}
-
--- completion
-local cmp = require("cmp")
-cmp.setup({
-	preselect = cmp.PreselectMode.None,
-	snippet = {
-		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
-
-		end,
-	},
-
-	mapping = {
-
-		["<Up>"] = cmp.mapping.select_prev_item(),
-
-		["<Down>"] = cmp.mapping.select_next_item(),
-		["<Enter>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
-
-			select = true,
-		}),
-	},
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "vsnip" },
-		{ name = "cody" },
-		{ name = "path" },
-		{ name = "buffer" },
-	},
-})
-
 -- auto session
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 local opts = {
 	log_level = "info",
 	auto_session_enable_last_session = false,

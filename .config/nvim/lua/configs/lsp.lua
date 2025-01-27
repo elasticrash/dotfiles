@@ -1,10 +1,8 @@
 -- lsp
-require("lspconfig").tsserver.setup({})
 require("fidget").setup()
 
 vim.o.completeopt = "menuone,noinsert,noselect"
 vim.opt.shortmess = vim.opt.shortmess + "c"
-
 vim.lsp.inlay_hint.enable()
 
 vim.diagnostic.config({
