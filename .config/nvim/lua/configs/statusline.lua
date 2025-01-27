@@ -6,7 +6,7 @@ local colors = {
 
 	white = "#f3f3f3",
 	light_green = "#83a598",
-	orange = "#fe8019",
+	purple = "#bf40bf",
 	green = "#8ec07c",
 }
 
@@ -14,11 +14,11 @@ local theme = {
 	normal = {
 		a = { fg = colors.white, bg = colors.black },
 		b = { fg = colors.black, bg = colors.grey },
-		c = { fg = colors.black, bg = colors.orange },
+		c = { fg = colors.black, bg = colors.purple },
 		z = { fg = colors.white, bg = colors.black },
 	},
 	insert = { a = { fg = colors.white, bg = colors.red } },
-	visual = { a = { fg = colors.black, bg = colors.orange } },
+	visual = { a = { fg = colors.black, bg = colors.purple } },
 	replace = { a = { fg = colors.black, bg = colors.green } },
 }
 
