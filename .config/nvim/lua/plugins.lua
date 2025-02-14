@@ -169,4 +169,17 @@ return {
 			})
 		end
 	},
+        {
+                "shortcuts/no-neck-pain.nvim",
+                config = function()
+                        require("no-neck-pain").setup()
+                end,
+        },
+        {
+                "lewis6991/gitsigns.nvim",
+                config = function()
+                        require("gitsigns").setup()
+                end,
+        }
 }
+
