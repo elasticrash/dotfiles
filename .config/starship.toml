@@ -1,70 +1,27 @@
-format = """
-[🎵 ](yellow)\
-$username\
+format = """$character"""
+
+right_format = """
+$time\
 $directory\
 $git_branch\
-$git_status\
-$c\
 $nodejs\
 $rust\
-$docker_context\
-[🕑](red)\
-$time\
-[]()\
-$aws\
-[ > ]()
 """
-
-command_timeout = 5000
-
-[shell]
-bash_indicator = "$"
-
-[username]
-show_always = true
-style_user = "yellow"
-format = '[local WSL ]($style)'
-
-[directory]
-style = "red"
-format = "[ 📁 $path ]($style)"
-truncation_length = 3
-truncation_symbol = "🎶 /"
-
-[aws]
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-
-[c]
-symbol = " "
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "#d65813"
-format = '[ $symbol $context ]($style) $path'
-
-[git_branch]
-symbol = ""
-style = "#165813"
-format = '[ $symbol $branch ]($style)'
-
-[git_status]
-style = "#d65813"
-format = '[$all_status$ahead_behind ]($style)'
-
-[nodejs]
-symbol = ""
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "#d65813"
-format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "red"
+time_format = "%T" # Hour:Minute Format
+style = "yellow"
 format = '[ $time ]($style)'
+
+[directory]
+truncation_length = 3
+truncation_symbol = "../"
+
+[rust]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
