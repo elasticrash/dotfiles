@@ -1,12 +1,8 @@
-format = """$character"""
+format = """╭─$time$directory$git_branch$nodejs$rust\n$character"""
 
-right_format = """
-$time\
-$directory\
-$git_branch\
-$nodejs\
-$rust\
-"""
+[character]
+success_symbol = "[╰─](white)[>](green)"
+error_symbol = "[╰─](white)[x](red)"
 
 [time]
 disabled = false
