@@ -56,7 +56,6 @@ return {
 
                         -- Rust
                         vim.lsp.config('rust_analyzer', {
-                                on_attach = on_attach,
                                 settings = {
                                         ["rust-analyzer"] = {
                                                 cargo = {
@@ -75,6 +74,7 @@ return {
                                         },
                                 },
                         })
+                vim.lsp.enable('rust_analyzer');
                 end
         },
         {
@@ -142,7 +142,13 @@ return {
         require("copilot_cmp").setup()
                 end,
         },
-        { "zbirenbaum/copilot.lua" },
+        {"zbirenbaum/copilot.lua",
+                cmd = "Copilot",
+                event = "InsertEnter",
+                config = function()
+                require("copilot").setup({})
+                end
+        },
         {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
