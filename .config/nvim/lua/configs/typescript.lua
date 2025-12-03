@@ -5,6 +5,8 @@ vim.lsp.config("ts_ls", {
         cmd = { "typescript-language-server", "--stdio" },
 })
 
+vim.lsp.enable("ts_ls")
+
 local status, prettier = pcall(require, "prettier")
 if not status then
         return
